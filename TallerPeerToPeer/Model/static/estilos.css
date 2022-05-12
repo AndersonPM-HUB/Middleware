@@ -1,0 +1,33 @@
+
+body{
+
+    background-image: url("https://iotchain.io/imgs/leftboximg.gif");
+}
+
+.nav{
+    background-color: white;
+}
+.container{
+
+    background-color: white;
+    margin-top: 80px;
+    padding: 20px;
+}
+
+button{
+
+    margin-top: 10px;
+}
+table{
+    width: 100%;
+}
+td{
+    padding: 10px;
+    text-align: center;
+    width: 50%;
+}
+h1 ,label ,  p{
+    text-align: center;
+    font-family: "Times New Roman";
+
+}

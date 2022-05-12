@@ -1,0 +1,82 @@
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+    {{ super()}}
+    <title>P2P</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='estilos.css')}}">
+{% endblock %}
+
+{% block body%}
+{% for mensage in get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible">
+    <button type="button"
+            data-dismiss="alert"
+            class="close">&times;
+    </button>
+    {{ mensage }}
+    </div>
+{% endfor %}
+
+
+<div class="container">
+    <h1>Network  Peer to Peer : {{datos.nombre}}</h1>
+<form action="{{ url_for('guardar') }}" method="POST">
+<div class="mb-3">
+    <table border="1">
+        <tr>
+            <td>
+            <label for="formGroupExampleInput" class="form-label">Ingresa Numero a guardar</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" name="numero">
+            <button class="btn btn-primary" type="submit">Guardar</button>
+            </td>
+            <td>
+                <p><img src="https://www.misiacademy.tech/wp-content/uploads/2020/10/giphy-14.gif" width="200px"></p>
+               
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+    </form>
+    <form action="{{url_for('redsum')}}", method="POST">
+        <table border="1">
+            <tr>
+                <td>  <label  class="form-label">Solicitar suma de la red</label>
+                    <br>
+                    <button class="btn btn-primary" type="submit"> Ver </button>
+                </td>
+                <td>
+                    <p>Listado de numeros en nodo : {{datos.lista}}</p>
+                    <p>Total en nodo: {{datos.total}}</p></td>
+            </tr>
+            <tr>
+                <td><p> <img src="https://userscontent2.emaze.com/images/86bf19b8-7c77-4518-89eb-ab077b7d6377/a9b072be32a817b4ee7b91f468e744d5.png" alt="redmalla" width="200px"></p>
+                </td>
+                <td>
+                    <p>Total en red {{datos.red}}</p>
+
+                </td>
+            </tr>
+
+        </table>
+    </form>
+    <form action="{{url_for('reset')}}" method="post">
+        <p><button class="btn btn-primary"  type="submit"> Reset Flags </button></p>
+        <p> Estado de las banderas a su estado inicial : </p>
+    </form>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    {% block scripts %}
+    {{ super() }}
+    {% endblock %}
+{% endblock %}
